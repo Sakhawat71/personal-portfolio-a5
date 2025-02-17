@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeSwitcher from "../ThemeSwitcher";
 
 const Navbar = () => {
     const pathname = usePathname();
@@ -18,6 +19,7 @@ const Navbar = () => {
                     <Link href="/contact" className={linkStyle("/contact")}>Contact</Link>
                     <Link href="/login" className={linkStyle("/login")}>Login</Link>
                     <Link href="/register" className={linkStyle("/register")}>Register</Link>
+                    <ThemeSwitcher />
                 </div>
             </div>
         </nav>
