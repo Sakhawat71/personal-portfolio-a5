@@ -45,7 +45,7 @@ const Banner = () => {
                 <div className=" -skew-x-[10deg] translate-x-20 w-full h-full flex justify-center items-center bg-black">
                 </div>
 
-                <div className='absolute bottom-[-10px]'>
+                <div className='absolute -bottom-2'>
                     <Image
                         // src={profileImage}
                         src="/assets/profileImg.png"

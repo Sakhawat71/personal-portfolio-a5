@@ -8,6 +8,7 @@ const HomePage = () => {
         <div className="bg-[#D7D7D7]">
             <Banner />
             <Skills />
+            
         </div>
     );
 };
