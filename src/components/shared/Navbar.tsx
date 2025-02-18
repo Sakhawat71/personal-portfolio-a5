@@ -44,10 +44,10 @@ const Navbar = () => {
 
                 {/* Post Blog Button (Always Visible) */}
                 <Link
-                    href="/blogs/create"
+                    href="/login"
                     className="hidden md:block px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-500 transition"
                 >
-                    Post Blog
+                    Login
                 </Link>
 
                 {/* Mobile Menu Button */}
@@ -73,11 +73,11 @@ const Navbar = () => {
                         </Link>
                     ))}
                     <Link
-                        href="/blogs/create"
+                        href="/login"
                         className="px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-500 transition"
                         onClick={() => setIsOpen(false)}
                     >
-                        Post Blog
+                        login
                     </Link>
                 </div>
             )}
