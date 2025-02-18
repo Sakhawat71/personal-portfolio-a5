@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-// import brandLogo from "@/assets/logo.png";
-import Image from "next/image";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
     const pathname = usePathname();
+    const [isOpen, setIsOpen] = useState(false);
 
     const navLinks = [
         { href: "/", label: "Home" },
@@ -16,44 +17,70 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="flex items-center justify-between p-4 border-b container mx-auto">
-            <div className="flex items-center">
-                <div className="flex items-center space-x-2">
-                    <Link href="/" className="flex items-center gap-1">
-                        <Image
-                            src='https://i.ibb.co.com/CnyPN5K/logo-portfolio-removebg-preview.png'
-                            width={30}
-                            height={30}
-                            alt="logo"
-                        />
-                        <span className="text-xl font-bold">NexaBlog</span>
+        <nav className="border-b shadow-md bg-white dark:bg-gray-900 dark:text-white">
+            <div className="container mx-auto flex items-center justify-between p-4">
+                {/* Logo */}
+                <div className="flex items-center">
+                    <Link href="/" className="text-2xl font-bold font-mono">
+                        {`<Sakhawat/>`}
                     </Link>
                 </div>
-            </div>
 
-            <div className="flex items-center space-x-6">
-                {navLinks.map(({ href, label }) => (
-                    <Link
-                        key={href}
-                        href={href}
-                        className={`${pathname === href
-                            ? "text-teal-600 font-bold"
-                            : "text-gray-700 hover:text-6eal-700"
-                            }`}
-                    >
-                        {label}
-                    </Link>
-                ))}
-            </div>
+                {/* Desktop Menu */}
+                <div className="hidden md:flex items-center space-x-6">
+                    {navLinks.map(({ href, label }) => (
+                        <Link
+                            key={href}
+                            href={href}
+                            className={`${pathname === href
+                                ? "text-teal-600 font-bold"
+                                : "text-gray-700 hover:text-teal-700 dark:text-gray-300 dark:hover:text-teal-400"
+                                } transition-colors`}
+                        >
+                            {label}
+                        </Link>
+                    ))}
+                </div>
 
-            <div>
+                {/* Post Blog Button (Always Visible) */}
                 <Link
                     href="/blogs/create"
-                    className="px-4 py-3 bg-teal-600 text-white rounded-full hover:bg-teal-500"
+                    className="hidden md:block px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-500 transition"
                 >
                     Post Blog
                 </Link>
+
+                {/* Mobile Menu Button */}
+                <button
+                    className="md:hidden p-2 rounded-lg bg-gray-200 dark:bg-gray-800"
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
             </div>
+
+            {/* Mobile Menu */}
+            {isOpen && (
+                <div className="md:hidden flex flex-col items-center space-y-4 pb-4 bg-white dark:bg-gray-900 transition-all">
+                    {navLinks.map(({ href, label }) => (
+                        <Link
+                            key={href}
+                            href={href}
+                            className="text-gray-700 hover:text-teal-700 dark:text-gray-300 dark:hover:text-teal-400 transition-colors"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            {label}
+                        </Link>
+                    ))}
+                    <Link
+                        href="/blogs/create"
+                        className="px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-500 transition"
+                        onClick={() => setIsOpen(false)}
+                    >
+                        Post Blog
+                    </Link>
+                </div>
+            )}
         </nav>
     );
 };
