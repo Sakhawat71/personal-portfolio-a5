@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 // import profileImage from '@/assets/img/profileImg.png'
 import Link from 'next/link';
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaDownload, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Banner = () => {
     return (
@@ -24,6 +24,18 @@ const Banner = () => {
                     </Link>
                     <Link href="https://linkedin.com/in/s3h" target='_blank'>
                         <FaLinkedin className='text-2xl w-9 h-9' />
+                    </Link>
+
+                </div>
+
+                <div className="flex justify-center lg:justify-start">
+                    <Link
+                        href="/"
+                        // download
+                        className="flex items-center space-x-2 border-2 border-black text-black px-6 py-3 rounded-lg transition-colors"
+                    >
+                        <FaDownload className="text-xl" />
+                        <span>Download CV</span>
                     </Link>
                 </div>
 
