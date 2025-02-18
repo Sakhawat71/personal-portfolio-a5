@@ -13,11 +13,6 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Sakhawat - Portfolio",
   description: "Sakhawat Backend Developer",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.png",
-  },
 };
 
 export default function RootLayout({
