@@ -12,7 +12,7 @@ const SkillCart = ({ project } : {project : TProject}) => {
     // console.log(project)
 
     return (
-        <div className="card card-compact bg-base-100 shadow-xl rounded-lg overflow-hidden ">
+        <div className="bg-white card card-compact shadow-xl rounded-lg overflow-hidden ">
 
             <figure className="relative w-full h-60">
                 <Carousel
@@ -40,7 +40,7 @@ const SkillCart = ({ project } : {project : TProject}) => {
                 </Carousel>
             </figure>
 
-            <div className="card-body ">
+            <div className="card-body p-5 space-y-3">
                 <h2 className="card-title text-lg font-semibold">{project?.projectName}</h2>
                 <p className="text-gray-600">{project?.projectDis}</p>
             </div>
@@ -56,6 +56,7 @@ const SkillCart = ({ project } : {project : TProject}) => {
                     <span className="text-gray-600 font-medium hover:underline">GitHub Repo</span>
                 </Link>
             </div>
+
         </div>
     );
 };
