@@ -13,7 +13,7 @@ const Projects = () => {
 
 
     return (
-        <div className='mt-10 mx-5 md:mx-10 lg:mx-16'>
+        <div className='my-10 mx-5 md:mx-10 lg:mx-16'>
 
             <Image
                 src={lineImage}
