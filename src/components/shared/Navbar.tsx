@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import ThemeSwitcher from "../thems/ThemeSwitcher";
 
 const Navbar = () => {
     const pathname = usePathname();
@@ -20,13 +21,11 @@ const Navbar = () => {
         <nav className="border-b shadow-md bg-white dark:bg-gray-900 dark:text-white">
             <div className="container mx-auto flex items-center justify-between p-4">
                 {/* Logo */}
-                <div className="flex items-center">
-                    <Link href="/" className="text-2xl font-bold font-mono">
-                        {`<Sakhawat/>`}
-                    </Link>
-                </div>
+                <Link href="/" className="text-2xl font-bold font-mono">
+                    {`<Sakhawat/>`}
+                </Link>
 
-                {/* Desktop Menu */}
+                {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center space-x-6">
                     {navLinks.map(({ href, label }) => (
                         <Link
@@ -42,13 +41,16 @@ const Navbar = () => {
                     ))}
                 </div>
 
-                {/* Post Blog Button (Always Visible) */}
-                <Link
-                    href="/login"
-                    className="hidden md:block px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-500 transition"
-                >
-                    Login
-                </Link>
+                {/* Theme Switcher & Login Button */}
+                <div className="hidden md:flex items-center space-x-4">
+                    <ThemeSwitcher />
+                    <Link
+                        href="/login"
+                        className="px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-500 transition"
+                    >
+                        Login
+                    </Link>
+                </div>
 
                 {/* Mobile Menu Button */}
                 <button
@@ -72,12 +74,17 @@ const Navbar = () => {
                             {label}
                         </Link>
                     ))}
+
+                    {/* Theme Switcher in Mobile Menu */}
+                    <ThemeSwitcher />
+
+                    {/* Mobile Login Button */}
                     <Link
                         href="/login"
                         className="px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-500 transition"
                         onClick={() => setIsOpen(false)}
                     >
-                        login
+                        Login
                     </Link>
                 </div>
             )}
