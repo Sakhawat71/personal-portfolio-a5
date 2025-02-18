@@ -5,8 +5,9 @@ import Link from "next/link";
 import { Carousel } from "react-responsive-carousel";
 import liveSite from '@/assets/card/live.png';
 import gitHub from '@/assets/card/github.png';
+import { TProject } from "@/types/homeproject.type";
 
-const SkillCart = ({ project }) => {
+const SkillCart = ({ project } : {project : TProject}) => {
 
     // console.log(project)
 
