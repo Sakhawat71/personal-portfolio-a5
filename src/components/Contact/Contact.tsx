@@ -29,7 +29,7 @@ const Contact = () => {
     return (
         <div className="gradient-bg ">
 
-            <div className='mt-12 mb-10 flex items-center'>
+            <div className='py-12 flex items-center'>
                 <div className=' border-black border-[5px] w-72 mx-auto text-center '>
                     <h2 className='font-montserrat text-black font-bold text-xl tracking-[6px] p-3 uppercase '>CONTACT</h2>
                 </div>
@@ -80,7 +80,7 @@ const Contact = () => {
                     {errors.message && <span className="text-red-500">{errors.message.message}</span>}
 
                     <input
-                        className="btn btn-outline hover:bg-transparent hover:text-black w-fit mx-auto rounded-none bg-transparent border-x-4 border-y-0 uppercase font-extrabold tracking-widest border-black px-2"
+                        className="cursor-pointer btn btn-outline hover:bg-transparent hover:text-black w-fit mx-auto rounded-none bg-transparent border-x-4 border-y-0 uppercase font-extrabold tracking-widest border-black px-2"
                         type="submit"
                         value="Submit"
                     />
