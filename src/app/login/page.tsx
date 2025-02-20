@@ -40,7 +40,7 @@ const LoginPage = () => {
 
     return (
         <div className="mt-5 w-[90%] mx-auto">
-            
+
             <h1 className="text-center text-4xl font-bold">
                 Login <span className="text-teal-500">Here</span>
             </h1>
@@ -102,12 +102,13 @@ const LoginPage = () => {
                         </div>
                     </form>
 
-                    <p className="text-center mt-4 text-sm text-gray-600">
+                    {/* <p className="text-center mt-4 text-sm text-gray-600">
                         Don&apos;t have an account?{" "}
                         <Link href="/register" className="text-teal-500 hover:underline">
                             Create an account
                         </Link>
                     </p>
+                 */}
 
                     <p className="text-center mt-6 text-sm text-gray-500">
                         Or Sign Up Using
