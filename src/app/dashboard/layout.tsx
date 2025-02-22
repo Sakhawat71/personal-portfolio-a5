@@ -1,10 +1,10 @@
 import React from 'react';
 
-const DashboardLayout = () => {
+const DashboardLayout = ({children}) => {
     
     return (
         <div>
-            
+            <div className="min-h-screen">{children}</div>
         </div>
     );
 };

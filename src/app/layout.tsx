@@ -3,6 +3,8 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import ThemeProvider from "@/components/thems/ThemeProvider";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/utils/authOptions";
 
 const roboto = Roboto({
   weight: "400",
@@ -15,18 +17,22 @@ export const metadata: Metadata = {
   description: "Sakhawat Backend Developer",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const session = await getServerSession(authOptions);
+  // console.log(session);
+
   return (
     <html lang="en">
       <body
         className={`${roboto.className} bg-slate-300`}
       >
         <ThemeProvider >
-          <Navbar />
+          <Navbar session={session} />
           <div className="min-h-screen">{children}</div>
         </ThemeProvider>
       </body>

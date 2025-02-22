@@ -5,10 +5,14 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeSwitcher from "../thems/ThemeSwitcher";
+import { userProps } from "@/types/user.type";
+import { signOut } from "next-auth/react";
 
-const Navbar = () => {
+const Navbar = ({ session }: { session: userProps | null }) => {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+
+    // console.log(session);
 
     const navLinks = [
         { href: "/", label: "Home" },
@@ -42,15 +46,24 @@ const Navbar = () => {
                     ))}
                 </div>
 
-                {/* Theme Switcher & Login Button */}
+                {/* Theme Switcher & Auth Button */}
                 <div className="hidden md:flex items-center space-x-4">
                     <ThemeSwitcher />
-                    <Link
-                        href="/login"
-                        className="px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-500 transition"
-                    >
-                        Login
-                    </Link>
+                    {session ? (
+                        <button
+                            onClick={() => signOut()}
+                            className="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition"
+                        >
+                            Logout
+                        </button>
+                    ) : (
+                        <Link
+                            href="/login"
+                            className="px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-500 transition"
+                        >
+                            Login
+                        </Link>
+                    )}
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -79,14 +92,26 @@ const Navbar = () => {
                     {/* Theme Switcher in Mobile Menu */}
                     <ThemeSwitcher />
 
-                    {/* Mobile Login Button */}
-                    <Link
-                        href="/login"
-                        className="px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-500 transition"
-                        onClick={() => setIsOpen(false)}
-                    >
-                        Login
-                    </Link>
+                    {/* Mobile Auth Button */}
+                    {session ? (
+                        <button
+                            onClick={() => {
+                                setIsOpen(false);
+                                signOut();
+                            }}
+                            className="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition"
+                        >
+                            Logout
+                        </button>
+                    ) : (
+                        <Link
+                            href="/login"
+                            className="px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-500 transition"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            Login
+                        </Link>
+                    )}
                 </div>
             )}
         </nav>
