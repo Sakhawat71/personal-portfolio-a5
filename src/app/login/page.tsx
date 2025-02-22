@@ -1,11 +1,12 @@
 "use client";
-// import { loginUser } from "@/utils/actions/loginUser";
-// import { signIn } from "next-auth/react";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import loginThem from "@/assets/loginthem.png";
+import { loginUser } from "@/utils/actions/loginAdmin";
+import { signIn } from "next-auth/react";
 
 export type FormValues = {
     email: string;
@@ -24,13 +25,13 @@ const LoginPage = () => {
     const onSubmit = async (data: FormValues) => {
         console.log(data);
         try {
-            // const res = await loginUser(data);
+            const res = await loginUser(data);
             // if (res?.accessToken) {
             //     alert(res?.message);
             //     localStorage.setItem('accessToken', res.accessToken);
             //     router.push('/dashboard');
             // }
-            console.log(data);
+            console.log(res);
         } catch (err: any) {
             console.error(err.message);
             throw new Error(err.message);
@@ -116,9 +117,9 @@ const LoginPage = () => {
                     {/* Social Login Buttons */}
                     <div className="flex justify-center gap-4 mt-4">
                         <button
-                            // onClick={() => signIn("google", {
-                            //     callbackUrl: 'https://nextjs-authentication-gray.vercel.app/dashboard'
-                            // })}
+                            onClick={() => signIn("google", {
+                                callbackUrl: 'http://localhost:3000/dashboard'
+                            })}
                             className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200">
                             <Image
                                 src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
@@ -128,9 +129,9 @@ const LoginPage = () => {
                             />
                         </button>
                         <button
-                            // onClick={() => signIn("github", {
-                            //     callbackUrl: "https://nextjs-authentication-gray.vercel.app/dashboard"
-                            // })}
+                            onClick={() => signIn("github", {
+                                callbackUrl: "http://localhost:3000/dashboard"
+                            })}
                             className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200"
                         >
                             <Image
