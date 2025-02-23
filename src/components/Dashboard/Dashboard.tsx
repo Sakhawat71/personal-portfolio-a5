@@ -3,9 +3,8 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
-import { FaBars, FaTimes, FaUsers, FaBox, FaShoppingCart } from "react-icons/fa";
-import { FaBoxesStacked } from "react-icons/fa6";
+import { FaBars, FaTimes, FaCode, FaBlogger, } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
 
 const DashboardClient = ({ user }: { user: any }) => {
     const pathname = usePathname();
@@ -14,10 +13,9 @@ const DashboardClient = ({ user }: { user: any }) => {
     const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
     const adminLinks = [
-        { href: "/dashboard/blogs", label: "Manage Users", icon: FaUsers },
-        { href: "/dashboard/projects", label: "Add Product", icon: FaBoxesStacked },
-        { href: "/dashboard/messages", label: "Manage Products", icon: FaBox },
-        // { href: "/dashboard/manage-orders", label: "Manage Orders", icon: FaShoppingCart },
+        { href: "/dashboard/blogs", label: "Blogs", icon: FaBlogger },
+        { href: "/dashboard/projects", label: "Projects", icon: FaCode },
+        { href: "/dashboard/messages", label: "Messages", icon: FaMessage },
     ];
 
     return (
@@ -37,16 +35,7 @@ const DashboardClient = ({ user }: { user: any }) => {
             >
                 <div className="pt-6 text-center">
                     <Link href="/" onClick={() => setIsSidebarOpen(false)}>
-                        <figure>
-                            <Image
-                                src="/books.png" // Make sure this file is in your public folder
-                                alt="logo"
-                                width={40}
-                                height={40}
-                                className="mx-auto"
-                            />
-                            <p className="font-bold pt-1">BookNest Admin</p>
-                        </figure>
+                        <span className="font-bold pt-1 text-2xl font-mono">{`<Sakhawat/>`}</span>
                     </Link>
 
                     <ul className="space-y-3 py-10 mx-5 font-semibold text-lg">
@@ -54,9 +43,8 @@ const DashboardClient = ({ user }: { user: any }) => {
                             <li key={href}>
                                 <Link
                                     href={href}
-                                    className={`flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
-                                        pathname === href ? "text-[#44b584] font-semibold" : "text-gray-700 hover:text-teal-600"
-                                    }`}
+                                    className={`flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${pathname === href ? "text-[#44b584] font-semibold" : "text-gray-700 hover:text-teal-600"
+                                        }`}
                                     onClick={() => setIsSidebarOpen(false)}
                                 >
                                     <Icon className="text-lg" />

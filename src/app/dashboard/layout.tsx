@@ -1,6 +1,8 @@
 import React from 'react';
 
-const DashboardLayout = ({children}) => {
+import { ReactNode } from 'react';
+
+const DashboardLayout = ({children}: {children: ReactNode}) => {
     
     return (
         <div>

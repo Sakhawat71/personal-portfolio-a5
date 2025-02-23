@@ -30,8 +30,8 @@ const Banner = () => {
 
                 <div className="flex justify-center lg:justify-start">
                     <Link
-                        href="/"
-                        // download
+                        href="/Sakhawat_react.jsDev_resume.pdf"
+                        download
                         className="flex items-center space-x-2 border-2 border-black text-black px-6 py-3 rounded-lg transition-colors"
                     >
                         <FaDownload className="text-xl" />
@@ -45,7 +45,7 @@ const Banner = () => {
                 <div className=" -skew-x-[10deg] translate-x-20 w-full h-full flex justify-center items-center bg-black">
                 </div>
 
-                <div className='absolute -bottom-2'>
+                <div className='absolute -bottom-2 flex items-end'>
                     <Image
                         // src={profileImage}
                         src="/assets/profileImg.png"
