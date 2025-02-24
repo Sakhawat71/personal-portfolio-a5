@@ -1,9 +1,8 @@
 "use client"
-import React from "react";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
     return (
-        // <Provider store={store}>
+        // <Provider >
             {children}
         // </Provider>
     );

@@ -5,6 +5,7 @@ import Navbar from "@/components/shared/Navbar";
 import ThemeProvider from "@/components/thems/ThemeProvider";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/utils/authOptions";
+import { Toaster } from "sonner";
 
 const roboto = Roboto({
   weight: "400",
@@ -34,6 +35,7 @@ export default async function RootLayout({
         <ThemeProvider >
           <Navbar session={session} />
           <div className="min-h-screen">{children}</div>
+          <Toaster position="top-right" />
         </ThemeProvider>
       </body>
     </html>
