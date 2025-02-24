@@ -4,6 +4,18 @@ import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
 import { cookies } from "next/headers";
 
+declare module "next-auth" {
+    interface User {
+        accessToken?: string;
+    }
+}
+declare module "next-auth" {
+    interface Session {
+        accessToken?: string;
+    }
+}
+
+
 export const authOptions: NextAuthOptions = {
     providers: [
         GoogleProvider({
@@ -66,7 +78,7 @@ export const authOptions: NextAuthOptions = {
         },
         async session({ session, token }) {
             if (token.accessToken) {
-                session.accessToken = token.accessToken;
+                session.accessToken = token.accessToken as string;
             }
             return session;
         },
