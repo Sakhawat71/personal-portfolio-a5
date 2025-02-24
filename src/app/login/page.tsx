@@ -23,18 +23,30 @@ const LoginPage = () => {
     const router = useRouter();
 
     const onSubmit = async (data: FormValues) => {
+        console.log("Backend URL:", process.env.BACKEND_URL);
         console.log(data);
-        try {
-            const res = await loginUser(data);
-            // if (res?.accessToken) {
-            //     alert(res?.message);
-            //     localStorage.setItem('accessToken', res.accessToken);
-            //     router.push('/dashboard');
-            // }
-            console.log(res);
-        } catch (err: any) {
-            console.error(err.message);
-            throw new Error(err.message);
+        // try {
+        //     const res = await loginUser(data);
+        //     // if (res?.accessToken) {
+        //     //     alert(res?.message);
+        //     //     localStorage.setItem('accessToken', res.accessToken);
+        //         router.push('/dashboard');
+        //     // }
+        //     console.log(res);
+        // } catch (err: any) {
+        //     console.error(err.message);
+        //     throw new Error(err.message);
+        // }
+        const res = await signIn("credentials", {
+            email: data.email,
+            password: data.password,
+            // redirect: false,
+        });
+
+        if (res?.error) {
+            alert("Login failed!");
+        } else {
+            router.push("/dashboard");
         }
     };
 
