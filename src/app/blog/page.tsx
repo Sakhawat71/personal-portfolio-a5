@@ -17,7 +17,7 @@ const BlogsPage = async () => {
                     {blogs?.data?.map((blog : Blog) => (
                         <div key={blog._id} className="bg-white p-5 border rounded-lg shadow-md hover:shadow-lg transition">
                             <h2 className="text-xl font-bold">{blog.title}</h2>
-                            <p className="text-gray-600 text-sm">{new Date(blog.createdAt).toLocaleDateString()}</p>
+                            <p className="text-gray-600 text-sm">{new Date(blog.createdAt)?.toLocaleDateString()}</p>
                             <p className="mt-2 text-gray-700">{blog.content?.slice(0, 100)}...</p>
                             <Link href={`/blog/${blog._id}`} className="text-teal-500 font-semibold mt-3 block">
                                 Read More →
