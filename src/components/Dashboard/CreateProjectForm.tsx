@@ -10,19 +10,9 @@ const CreateProjectForm = () => {
     const { register, handleSubmit, setValue, watch } = useForm<IProject>();
 
     const onSubmit = async (data: IProject) => {
-        console.log(data);
         try {
-            //   const response = await fetch("http://localhost:5000/projects", {
-            //     method: "POST",
-            //     headers: { "Content-Type": "application/json" },
-            //     body: JSON.stringify(data),
-            //   });
-
-            //   if (response.ok) {
-            //     message.success("Project created successfully!");
-            //   } else {
-            //     message.error("Failed to create project.");
-            //   }
+            console.log(data);
+            
         } catch (error) {
             console.error("Error:", error);
             message.error("Something went wrong!");
@@ -80,7 +70,7 @@ const CreateProjectForm = () => {
                         Create Project
                     </Button>
                 </Form.Item>
-                
+
             </Form>
         </div>
     );
