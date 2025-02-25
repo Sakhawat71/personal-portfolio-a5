@@ -18,8 +18,8 @@ const CreateProjectForm = () => {
     };
 
     return (
-        <div className="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow-md">
-            <h2 className="text-2xl font-semibold mb-4">Create a New Project</h2>
+        <div className="max-w-2xl mx-auto bg-slate-200 p-6 rounded-xl shadow-md">
+            <h2 className="text-2xl font-semibold mb-4 text-center">Create a New Project</h2>
 
             <Form form={form} layout="vertical" onFinish={onFinish}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">

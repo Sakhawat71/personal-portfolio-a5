@@ -1,20 +1,5 @@
-// import React from 'react';
-
-import { ReactNode } from 'react';
-
-// const DashboardLayout = ({children}: {children: ReactNode}) => {
-    
-//     return (
-//         <div>
-//             <h2>hello</h2>
-//             <div className="min-h-screen">{children}</div>
-//         </div>
-//     );
-// };
-
-// export default DashboardLayout;
 "use client";
-
+import { ReactNode } from 'react';
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -73,7 +58,7 @@ const DashboardClient = ({children}: {children: ReactNode}) => {
             </div>
 
             {/* Main Content */}
-            <main className="flex-1 shadow-2xl rounded-2xl p-6">
+            <main className="flex-1 shadow-2xl rounded-2xl px-6">
                 
                 <div className="min-h-screen">{children}</div>
             </main>
@@ -82,3 +67,16 @@ const DashboardClient = ({children}: {children: ReactNode}) => {
 };
 
 export default DashboardClient;
+
+
+// const DashboardLayout = ({children}: {children: ReactNode}) => {
+    
+//     return (
+//         <div>
+//             <h2>hello</h2>
+//             <div className="min-h-screen">{children}</div>
+//         </div>
+//     );
+// };
+
+// export default DashboardLayout;
