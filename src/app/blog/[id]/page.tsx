@@ -3,15 +3,15 @@ import { fetchBlogById } from '@/utils/actions/fetchBlogs';
 import Image from 'next/image';
 import React from 'react';
 
-// type BlogDetailsPageProps = {
-//     params: {
-//         id: string;
-//     };
-// };
+type BlogDetailsPageProps = {
+    params: Promise<{ id: string }>;
+};
 
 
-const BlogDetailsPage = async ({ params }: { params: { id: string } }) => {
-    const { id } = params;
+const BlogDetailsPage = async ({ params }: BlogDetailsPageProps) => {
+
+    const resolvedParams = await params;
+    const { id } = resolvedParams;
     const blog = await fetchBlogById(id);
     const blogData: Blog = blog?.data;
 
