@@ -1,11 +1,12 @@
-import React from 'react';
+import CreateProjectForm from "@/components/Dashboard/CreateProjectForm";
 
-const ProjectsPage = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+
+const CreateProjectPage = () => {
+  return (
+    <div className="container mx-auto py-10">
+      <CreateProjectForm />
+    </div>
+  );
 };
 
-export default ProjectsPage;
+export default CreateProjectPage;
