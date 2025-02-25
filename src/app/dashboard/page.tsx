@@ -9,7 +9,7 @@ const DashboardPage = async () => {
         return <div className="text-center mt-10 text-red-500">Unauthorized Access</div>;
     }
 
-    return <DashboardClient user={session.user} />;
+    // return <DashboardClient user={session.user} />;
 };
 
 export default DashboardPage;
