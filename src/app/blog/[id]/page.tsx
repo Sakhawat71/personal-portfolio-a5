@@ -3,14 +3,17 @@ import { fetchBlogById } from '@/utils/actions/fetchBlogs';
 import Image from 'next/image';
 import React from 'react';
 
-interface BlogDetailsPageProps {
-    params: { id: string };
-}
+// type BlogDetailsPageProps = {
+//     params: {
+//         id: string;
+//     };
+// };
 
-const BlogDetailsPage = async ({ params }: BlogDetailsPageProps) => {
-    const {id} = await params;
+
+const BlogDetailsPage = async ({ params }: { params: { id: string } }) => {
+    const { id } = params;
     const blog = await fetchBlogById(id);
-    const blogData: Blog | null = blog?.data;
+    const blogData: Blog = blog?.data;
 
     if (!blogData) {
         return <div className="text-center text-red-500 text-xl mt-10">Blog not found!</div>;
