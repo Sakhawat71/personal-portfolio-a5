@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Form, Input, Select, message } from "antd";
+import { Button, Form, Input, Select } from "antd";
 import { IProject } from "@/types/project.type";
 import { toast } from "sonner";
 
@@ -31,7 +31,7 @@ const CreateProjectForm = () => {
                         rules={[{ required: true, message: 'Please enter project title!' }]}
                     >
                         <Input
-                            className="w-full p-3 border border-gray-300 rounded-lg text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                            className="w-full p-3 border border-gray-300 rounded-lg text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-white transition-all"
                             placeholder="Enter project title" />
                     </Form.Item>
 
@@ -44,8 +44,8 @@ const CreateProjectForm = () => {
                         rules={[{ required: true, message: 'Please select at least one technology!' }]}
                     >
                         <Select
-                        mode="tags" 
-                        placeholder="Add technologies" />
+                            mode="tags"
+                            placeholder="Add technologies" />
                     </Form.Item>
 
                     {/* Live URL */}
@@ -56,8 +56,8 @@ const CreateProjectForm = () => {
                         rules={[{ type: 'url', message: 'Please enter a valid URL!' }]}
                     >
                         <Input
-                        className="w-full p-3 border border-gray-300 rounded-lg text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
-                        placeholder="https://yourproject.com" />
+                            className="w-full p-3 border border-gray-300 rounded-lg text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                            placeholder="https://yourproject.com" />
                     </Form.Item>
 
                     {/* GitHub URL */}
@@ -68,8 +68,8 @@ const CreateProjectForm = () => {
                         rules={[{ type: 'url', message: 'Please enter a valid URL!' }]}
                     >
                         <Input
-                        className="w-full p-3 border border-gray-300 rounded-lg text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
-                        placeholder="https://github.com/yourrepo" />
+                            className="w-full p-3 border border-gray-300 rounded-lg text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                            placeholder="https://github.com/yourrepo" />
                     </Form.Item>
 
                     {/* Image URLs */}
@@ -99,8 +99,8 @@ const CreateProjectForm = () => {
                         rules={[{ required: true, message: 'Please enter project description!' }]}
                     >
                         <Input.TextArea
-                        className="w-full p-3 border border-gray-300 rounded-lg text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
-                        placeholder="Enter project description" rows={4} />
+                            className="w-full p-3 border border-gray-300 rounded-lg text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                            placeholder="Enter project description" rows={4} />
                     </Form.Item>
                 </div>
 

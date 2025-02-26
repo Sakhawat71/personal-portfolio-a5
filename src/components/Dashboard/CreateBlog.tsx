@@ -41,7 +41,7 @@ const CreateBlog = () => {
     };
 
     return (
-        <div className="max-w-2xl mx-auto p-6 bg-slate-300 shadow-md rounded-md">
+        <div className="max-w-2xl mx-auto p-6 bg-slate-100 shadow-md rounded-md">
             <h1 className="text-2xl font-bold mb-4 text-center">Create a Blog</h1>
 
             <Form form={form} layout="vertical" onFinish={handleSubmit}>
