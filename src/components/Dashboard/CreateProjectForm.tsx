@@ -3,14 +3,23 @@
 import { Button, Form, Input, Select } from "antd";
 import { IProject } from "@/types/project.type";
 import { toast } from "sonner";
+import { createProject } from "@/utils/actions/fetchProject";
 
 const CreateProjectForm = () => {
     const [form] = Form.useForm();
 
     const onFinish = async (values: IProject) => {
         try {
-            console.log("Form values:", values);
-            // Add your submission logic here
+            const toastId = toast.loading("Creating project...");
+            const res = await createProject(values);
+            // console.log(res);
+            if(res.success){
+                toast.success(res.message,{id: toastId});
+                form.resetFields();
+            }
+            else{
+                toast.error(res.message,{id: toastId});
+            }
         } catch (error) {
             console.error("Error:", error);
             toast.error("Something went wrong!");
