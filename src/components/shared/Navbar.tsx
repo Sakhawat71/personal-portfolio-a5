@@ -19,7 +19,7 @@ const Navbar = ({ session }: { session: userProps | null }) => {
         { href: "/projects", label: "Projects" },
         { href: "/blog", label: "Blogs" },
         { href: "/contact", label: "Contact" },
-        { href: "/dashboard", label: "Dashboard" },
+        { href: "/dashboard/messages", label: "Dashboard" },
     ];
 
     return (

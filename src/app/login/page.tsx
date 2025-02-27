@@ -31,7 +31,7 @@ const LoginPage = () => {
         if (res?.error) {
             alert("Login failed!");
         } else {
-            router.push("/dashboard");
+            router.push("/dashboard/messages");
         }
     };
 
@@ -108,7 +108,7 @@ const LoginPage = () => {
                     <div className="flex justify-center gap-4 mt-4">
                         <button
                             onClick={() => signIn("google", {
-                                callbackUrl: 'http://localhost:3000/dashboard'
+                                callbackUrl: 'http://localhost:3000/dashboard/messages'
                             })}
                             className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200">
                             <Image
@@ -120,7 +120,7 @@ const LoginPage = () => {
                         </button>
                         <button
                             onClick={() => signIn("github", {
-                                callbackUrl: "http://localhost:3000/dashboard"
+                                callbackUrl: "http://localhost:3000/dashboard/messages"
                             })}
                             className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200"
                         >
