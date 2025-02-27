@@ -6,7 +6,7 @@ import Link from "next/link";
 import { FaBars, FaTimes, FaCode, FaBlogger, } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 
-const DashboardClient = ({children}: {children: ReactNode}) => {
+const DashboardLayout = ({children}: {children: ReactNode}) => {
     const pathname = usePathname();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -66,17 +66,4 @@ const DashboardClient = ({children}: {children: ReactNode}) => {
     );
 };
 
-export default DashboardClient;
-
-
-// const DashboardLayout = ({children}: {children: ReactNode}) => {
-    
-//     return (
-//         <div>
-//             <h2>hello</h2>
-//             <div className="min-h-screen">{children}</div>
-//         </div>
-//     );
-// };
-
-// export default DashboardLayout;
+export default DashboardLayout;
