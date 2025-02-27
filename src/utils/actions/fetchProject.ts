@@ -9,7 +9,7 @@ export const createProject = async (data: IProject) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
-            cache: "no-store",
+            // cache: "no-store",
         });
 
         return await res.json();
@@ -23,7 +23,7 @@ export const getProjects = async () => {
     try {
         const res = await fetch(`${process.env.NEXTAUTH_URL}/projects`, {
             method: "GET",
-            cache: "no-store",
+            // cache: "no-store",
         });
 
         if (!res.ok) {
@@ -41,7 +41,7 @@ export const getProjectById = async (id: string) => {
     try {
         const res = await fetch(`${process.env.NEXTAUTH_URL}/projects/${id}`, {
             method: "GET",
-            cache: "no-store",
+            // cache: "no-store",
         });
 
         if (!res.ok) {

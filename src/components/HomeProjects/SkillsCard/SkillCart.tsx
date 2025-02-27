@@ -9,8 +9,6 @@ import { TProject } from "@/types/homeproject.type";
 
 const SkillCart = ({ project } : {project : TProject}) => {
 
-    // console.log(project)
-
     return (
         <div className="bg-white card card-compact shadow-xl rounded-lg overflow-hidden ">
 

@@ -4,7 +4,7 @@ export const fetchBlogs = async () => {
     try {
         const res = await fetch(`${process.env.NEXTAUTH_URL}/blogs`, {
             method: "GET",
-            cache: "no-store",
+            // cache: "no-store",
         });
 
         if (!res.ok) {
@@ -22,7 +22,7 @@ export const fetchBlogById = async (id: string) => {
     try {
         const res = await fetch(`${process.env.NEXTAUTH_URL}/blogs/${id}`, {
             method: "GET",
-            cache: "no-store",
+            // cache: "no-store",
         });
 
         if (!res.ok) {
@@ -45,7 +45,7 @@ export const fetchCreateBlog = async (data: any) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
-            cache: "no-store",
+            // cache: "no-store",
         });
 
         return await res.json();
