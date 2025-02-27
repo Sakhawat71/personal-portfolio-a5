@@ -2,6 +2,8 @@
 import Image from "next/image";
 import lineImage from "@/assets/ext/line.png"
 import { useForm } from "react-hook-form";
+import { createMessage } from "@/utils/actions/fetchMessage";
+import { toast } from "sonner";
 
 export type MessageForm = {
     name: string;
@@ -20,10 +22,20 @@ const Contact = () => {
     } = useForm<MessageForm>();
 
 
-    const onSubmit = (messageInfo : MessageForm) => {
-        console.log(messageInfo);
-        reset();
-
+    const onSubmit = async (messageInfo: MessageForm) => {
+        const toastId = toast.loading("Sending message...");
+        try {
+            const res = await createMessage(messageInfo);
+            if (res.success) {
+                toast.success("Message sent successfully", { id: toastId });
+                reset();
+            }
+            else {
+                toast.error("Failed to send message", { id: toastId });
+            }
+        } catch (error) {
+            toast.error("Failed to send message", { id: toastId });
+        }
     };
 
     return (
