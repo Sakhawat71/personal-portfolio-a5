@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import loginThem from "@/assets/loginthem.png";
 import { signIn } from "next-auth/react";
+import { toast } from "sonner";
 
 export type FormValues = {
     email: string;
@@ -27,10 +28,11 @@ const LoginPage = () => {
             password: data.password,
             redirect: false,
         });
-
+        console.log(res);
         if (res?.error) {
-            alert("Login failed!");
+            toast.error("Login failed!");
         } else {
+            console.log('here i am ');
             router.push("/dashboard/messages");
         }
     };
@@ -108,7 +110,7 @@ const LoginPage = () => {
                     <div className="flex justify-center gap-4 mt-4">
                         <button
                             onClick={() => signIn("google", {
-                                callbackUrl: 'http://localhost:3000/dashboard/messages'
+                                callbackUrl: 'https://sakhawat-portfolio.vercel.app/dashboard/messages'
                             })}
                             className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200">
                             <Image
@@ -120,7 +122,7 @@ const LoginPage = () => {
                         </button>
                         <button
                             onClick={() => signIn("github", {
-                                callbackUrl: "http://localhost:3000/dashboard/messages"
+                                callbackUrl: "https://sakhawat-portfolio.vercel.app/dashboard/messages"
                             })}
                             className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200"
                         >
